@@ -5,7 +5,7 @@
 **Step 1: Initialize the Rust Project**
 
 ```
-cargo new cli-todo
+cargo new cli-todo-list
 cd cli-todo-list
 ```
 
