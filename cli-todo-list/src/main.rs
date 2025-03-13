@@ -1,34 +1,24 @@
+use std::io;
+
 #[derive(Debug)]
-struct Todo {
+struct Task {
     id: i32,
     title: String,
-    completed: bool,
     description: String,
+    completed: bool,
 }
 
-#[derive(Debug)]
-struct TodoList {
-    todos: Vec<Todo>,
+impl Task {    
+    fn new(id: i32, title: String, description: String, completed: bool) -> Task {
+        Task { id: id, title: title, description: description, completed: completed }
+    }
+
+    fn print_task(self) {
+        println!("{:#?}", self);        
+    }
 }
 
-fn main() {
-    let todoList = TodoList {
-        todos: vec![
-            Todo {
-                id: 1,
-                title: String::from("Market Expenses"),
-                completed: false,
-                description: String::from("Buy groceries"),
-            },
-            Todo {
-                id: 2,
-                title: String::from("Weather Expenses"),
-                completed: false,
-                description: String::from("Pay the gym"),
-            },
-            
-        ],
-    };    
-
-    println!("user info: {:#?}", todoList);
+fn main() {    
+    let task = Task::new(1, String::from("Buy Groceries"), String::from("Buy 2 apples and 1 banana"), false);    
+    task.print_task();    
 }
